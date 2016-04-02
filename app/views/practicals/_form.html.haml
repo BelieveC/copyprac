@@ -4,8 +4,10 @@
 	=f.input :description, label:"Description", class:"form-control",placeholder:"Describe Your Practical"
 	%br/
 	%h2 Images
+	#tasks
 	=f.simple_fields_for :images do |image|
 		=render 'image_fields', f: image
+	.links
 		=link_to_add_association 'Add Images', f, :images,class:"btn btn-default add-button"
 	%br/
 	=f.submit class: "btn btn-primary"

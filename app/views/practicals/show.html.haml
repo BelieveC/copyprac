@@ -1,6 +1,10 @@
+-@practical.images.all.each do |image|
+	=image_tag image.url(:medium)
+
 %h1=@practical.aim
 %h2=@practical.subject
 %p=@practical.description
+
 
 =link_to "Edit", edit_practical_path(@practical), class:"btn btn-info"
 =link_to "Delete",@practical, method: :delete, data:{confirm:"Are you sure?"}, class:"btn btn-danger"
