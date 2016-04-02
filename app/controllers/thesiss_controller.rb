@@ -15,7 +15,7 @@ class ThesissController < ApplicationController
 	def create
 		@thesis= Thesis.new(thesisparams)
 		if @thesis.save
-			redirect_to @thesis
+			redirect_to thesiss_path(@thesis)
 		else
 			render('new')
 		end
@@ -26,7 +26,7 @@ class ThesissController < ApplicationController
 
 	def update
 		if @thesis.update(thesisparams)
-			redirect_to @thesis
+			redirect_to thesiss_path(@thesis)
 		else
 			render('edit')
 		end
