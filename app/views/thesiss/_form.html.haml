@@ -1,0 +1,9 @@
+=simple=simple_form_for(@thesis,html:{multipart: true}) do |f|
+	=f.input :topic, label:"Topic", class: "form-control",placeholder: "What is this Thesis about?"
+	=f.input :subject,label:"Subject",class:"form-control",placeholder:"Which subject this thesis is concerned with"
+	=f.input :publisher, label:"Tips", class:"form-control"
+	=f.input :duration,label:"Duration",class:"form-control"
+	=f.input :reasearchers,label:"Researchers",class:"form-control"
+	=f.input :description, label:"Description",class:"Form-control"
+	%br/
+	=f.submit class:"btn btn-primary"
