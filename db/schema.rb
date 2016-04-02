@@ -11,11 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160401225456) do
+ActiveRecord::Schema.define(version: 20160401235145) do
 
   create_table "images", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "sheet_file_name"
+    t.string   "sheet_content_type"
+    t.integer  "sheet_file_size"
+    t.datetime "sheet_updated_at"
   end
 
   create_table "practicals", force: :cascade do |t|
