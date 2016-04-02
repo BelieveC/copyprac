@@ -39,7 +39,7 @@ class ThesissController < ApplicationController
 
 	private
 		def thesisparams
-			params.require(:thesis).permit(:subject,:topic,:tips)
+			params.require(:thesis).permit(:subject,:topic,:duration,:publisher,:description,:researchers)
 		end
 
 		def get_thesis
