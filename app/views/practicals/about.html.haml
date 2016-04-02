@@ -1,11 +1,34 @@
-.container
-	.jumbotron
-		%h2 So what the fuss is all about?
-		%p Well, are you one of those lazy students who waits for the deadline to get started with the assignments? Do you like copying stuff more than actually doing it? Guess what! You are at the right place!
-		%hr/
-		%h2 What do we have for you?
-		%pProvides a platform for you and your classmates to share exam notes, assignments and question papers all at one place! Get notified for all the deadlines, events and recent stuff that’s going on in your college while you have fun bunking. 
-		%hr/
+#banner
+	.banner_content
+		%h1 BePracticle
+		%p 
+		%button= link_to "Sign Up","/auth/facebook"
+#testimonial
+	.wrapper
+		%p.quote "Best Utility Services"
+		%p.name -BelieveC
+
+#callouts
+	.callout_inner
+		.wrapper
+			.callout
+				%i.fa.fa-pencil
+				%h2 So what the fuss is all about?
+				%p Well, are you one of those lazy students who waits for the deadline to get started with the assignments? Do you like copying stuff more than actually doing it? Guess what! You are at the right place!
+			.callout
+				%i.fa.fa-rocket
+				%h2  What do we have for you?
+				%p We provide a platform for you and your classmates to share exam notes, assignments and question papers all at one place! Get notified for all the deadlines, events and recent stuff that’s going on in your college while you have fun bunking. 
+
+			.callout
+				%i.fa.fa-bolt
+				%h2 Lighting
+				%p Viral Echo Park Intelligentsia tattooed, craft beer organic authentic polaroid tousled mlkshk church-key. Fanny pack Banksy vegan  authentic Helvetica.
+#bottom_cta
+	.wrapper
 		%h2 What to do?
-		%p=link_to "Sign Up To Share","/auth/facebook",class:"btn btn-primary btn-lg"
-		
+		%p I want you to sign up... If you don’t. I will find you!
+		%button= link_to "Click Meee!!!", "/auth/facebook"
+
+%footer
+	%p &copy; BelieveC
