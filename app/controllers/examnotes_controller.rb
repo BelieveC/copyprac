@@ -1,7 +1,5 @@
 class ExamnotesController < ApplicationController
 	before_action :get_examnote, only:[:show,:edit,:update,:destroy]
-	def about
-	end
 
 	def index
 		@examnotes = Examnote.all.order("created_at DESC")
