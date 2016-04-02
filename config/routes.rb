@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :thesiss
 
   resources :sessions, only: [:create, :destroy]
-  root 'practicals#about'
+  root 'abouts#index'
 
   resources :practicals do
     resources :comments
