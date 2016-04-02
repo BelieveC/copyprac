@@ -41,7 +41,7 @@ class PracticalsController < ApplicationController
 
 	private
 		def pratical_params
-			params.require(:practical).permit(:aim,:description,:subject)
+			params.require(:practical).permit(:aim,:description,:subject,images_attributes:[:id,:sheet,:_destroy])
 		end
 
 		def get_pratical

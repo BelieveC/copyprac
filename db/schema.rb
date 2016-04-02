@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402024015) do
+ActiveRecord::Schema.define(version: 20160402040524) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "practical_id"
@@ -29,7 +29,10 @@ ActiveRecord::Schema.define(version: 20160402024015) do
     t.string   "sheet_content_type"
     t.integer  "sheet_file_size"
     t.datetime "sheet_updated_at"
+    t.integer  "practical_id"
   end
+
+  add_index "images", ["practical_id"], name: "index_images_on_practical_id"
 
   create_table "practicals", force: :cascade do |t|
     t.string   "aim"

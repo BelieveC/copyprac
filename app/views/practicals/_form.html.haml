@@ -3,4 +3,10 @@
 	=f.input :subject, label: "Subject", class: "form-control",placeholder: "What is this article about?"
 	=f.input :description, label:"Description", class:"form-control",placeholder:"Describe Your Practical"
 	%br/
+	%h2 Images
+	%ul
+		=f.simple_fields_for :images do |image|
+			=render 'image_fields', f: image
+			=link_to_add_association 'Add Images', f, :images,class:"btn btn-default add-button"
+	%br/
 	=f.submit class: "btn btn-primary"
