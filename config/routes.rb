@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :examnotes
 
+  resources :thesiss
+
   resources :sessions, only: [:create, :destroy]
   root 'practicals#about'
 
