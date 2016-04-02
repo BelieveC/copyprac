@@ -1,6 +1,9 @@
 
 <%= div_for(comment) do %>
-			<p><%= comment.body %></p>
-			<p><small>Submitted <strong><%= time_ago_in_words(comment.created_at) %> ago</strong>
+		<div class="comments_wrapper clearfix">
+		<div class="pull-left">
+			<p class="lead"><%= comment.body %></p>
+			<p>Submitted <strong><%= time_ago_in_words(comment.created_at) %> ago</strong></p>
 		</div>
-<% end %>q
+		</div>
+<%end%>

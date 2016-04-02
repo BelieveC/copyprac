@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>bitNotes</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon'%>
+</head>
+<body>
+	<%= render('fb')%>
+	<header class="navbar navbar-default" role="navigation">
+    <div class="navbar-inner">
+      <div class="container">
+        <div id="logo" class="navbar-brand"><%= link_to "bitNotes", practicals_path %></div>
+        <nav class="collapse navbar-collapse navbar-ex1-collapse">
+        				<ul class="nav navbar-nav navbar-left">
+        					<li><%= link_to 'Practicals', practicals_path %></li>
+							<li><%= link_to 'ExamNotes', examnotes_path %></li>
+							<li><%= link_to 'Thesis', thesiss_index_path %></li>
+        				</ul>
+        	<% if user_signed_in? %>
+						<ul class="nav navbar-nav navbar-right">
+							<li><%= link_to 'New Practical', new_practical_path %></li>
+							<li><%= link_to 'New ExamNote', new_examnote_path %></li>
+							<li><%= link_to 'New Thesis', new_thesiss_path %></li>
+							<li><%= link_to 'Sign out',"#", :method => :delete %></li>
+						</ul>
+					<% else %>
+						<ul class="nav navbar-nav pull-right">
+							<li><%= link_to 'Sign up',"/auth/facebook"%></li>
+						</ul>
+					<% end -%>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+	<div id="main_content" class="container">
+		<% flash.each do |name, msg| %>
+			<%= content_tag(:div, msg, class: "alert alert-info") %>
+		<% end %>
+
+			<div id="content" class="col-md-9 center-block">
+				<%= yield %>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

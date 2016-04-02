@@ -1,7 +1,25 @@
+<div id="bottom">
+	<h1><%= @practical.aim %></h1>
+	<h2><%= @practical.subject %></h2>
+	<p><%=@practical.description %></p>
 
-<div class="flipbook-viewport">
+	<%= link_to "Edit",edit_practical_path(@practical),class:"btn btn-primary"%>
+	<%= link_to "Delete",@practical,method: :delete,data:{confirm:"Are you sure?"},class:"btn btn-danger"%>
+	<%= link_to "Back",:back,class:"btn btn-info"%>
+	<br>
+
+	<%=@practical.comments.count%>
+	Comments
+	<%=render :partial => @practical.comments%>
+	<%=simple_form_for([@practical,Comment.new]) do |f|%>
+		<%=f.input :body%>
+		<br>
+		<%=f.submit%>
+	<% end%>
+</div>
+<div class="flipbook-viewport" id="gallery">
 	<div class="container">
-	<div class="flipbook" id="gallery">
+	<div class="flipbook">
 	<% @practical.images.each do |image| %>
 			<div style="background-image:url(<%=image.sheet.url%>)"></div>
 	<% end%>
@@ -52,19 +70,3 @@ yepnope({
 
 </script>
 
-<h1><%= @practical.aim %></h1>
-<h2><%= @practical.subject %></h2>
-<p><%=@practical.description %></p>
-
-<%= link_to "Edit",edit_practical_path(@practical),class:"btn btn-primary"%>
-<%= link_to "Delete",@practical,method: :delete,data:{confirm:"Are you sure?"},class:"btn btn-danger"%>
-<%= link_to "Back",:back,class:"btn btn-info"%>
-<br>
-<%=@practical.comments.count%>
-Comments
-<%=render :partial => @practical.comments%>
-<%=simple_form_for([@practical,Comment.new]) do |f|%>
-	<%=f.input :body%>
-	<br>
-	<%=f.submit%>
-<% end%>
