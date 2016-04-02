@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  topic: MyString
+  reasearchers: MyString
+  subject: MyString
+  duration: MyString
+  publisher: MyString
+  description: MyText
+
+two:
+  topic: MyString
+  reasearchers: MyString
+  subject: MyString
+  duration: MyString
+  publisher: MyString
+  description: MyText
