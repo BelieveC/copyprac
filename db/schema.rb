@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402112254) do
+ActiveRecord::Schema.define(version: 20160402173256) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "practical_id"
@@ -68,7 +68,10 @@ ActiveRecord::Schema.define(version: 20160402112254) do
     t.string   "paper_content_type"
     t.integer  "paper_file_size"
     t.datetime "paper_updated_at"
+    t.integer  "thesis_id"
   end
+
+  add_index "thesisimages", ["thesis_id"], name: "index_thesisimages_on_thesis_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "provider"
