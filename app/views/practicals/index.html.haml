@@ -1,4 +1,10 @@
-%h1 Index Page
 
 -if current_user
 	%h1= current_user.name
+
+- @practicals.each do |practical|
+	%h1=link_to practical.aim,practical
+	%h3=practical.subject
+	%p=practical.description
+	%br/
+	%br/

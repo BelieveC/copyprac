@@ -1,7 +1,7 @@
 !!! 5
 %html
 %head
-	%title BePractical
+	%title CWeCan
 	=stylesheet_link_tag 'application', media: "all", 'data-turbolinks-track'=>true
 	=javascript_include_tag 'application','data-turbolinks-track'=>true
 	=csrf_meta_tags
@@ -11,7 +11,7 @@
 	=render('fb')
 	%nav.navbar.navbar-default
 		.container
-			.navbar-brand=link_to "BePractical","#"
+			.navbar-brand=link_to "CWeCan","#"
 	.container
 		-if flash.any?
 			-flash.each do |name,msg|
