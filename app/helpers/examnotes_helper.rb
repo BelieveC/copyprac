@@ -1,0 +1,2 @@
+module ExamnotesHelper
+end
