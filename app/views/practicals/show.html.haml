@@ -5,3 +5,12 @@
 =link_to "Edit", edit_practical_path(@practical), class:"btn btn-info"
 =link_to "Delete",@practical, method: :delete, data:{confirm:"Are you sure?"}, class:"btn btn-danger"
 =link_to "Back", practicals_path,class: "btn btn-success"
+
+%br/
+=@practical.comments.count
+Comments
+=render :partial => @practical.comments
+=simple_form_for([@practical,Comment.new]) do |f|
+	=f.input :body
+	%br/
+	=f.submit
