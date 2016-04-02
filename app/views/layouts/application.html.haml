@@ -12,6 +12,9 @@
 	%nav.navbar.navbar-default
 		.container
 			.navbar-brand=link_to "CWeCan","#"
+			%ul.nav.navbar-nav.navbar-right
+				%li=link_to "New Practical",new_practical_path
+
 	.container
 		-if flash.any?
 			-flash.each do |name,msg|
