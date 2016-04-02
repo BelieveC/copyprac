@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402174334) do
+ActiveRecord::Schema.define(version: 20160402175159) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "practical_id"
@@ -43,8 +43,12 @@ ActiveRecord::Schema.define(version: 20160402174334) do
   add_index "images", ["practical_id"], name: "index_images_on_practical_id"
 
   create_table "notes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "page_file_name"
+    t.string   "page_content_type"
+    t.integer  "page_file_size"
+    t.datetime "page_updated_at"
   end
 
   create_table "practicals", force: :cascade do |t|
