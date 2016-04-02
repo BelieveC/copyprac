@@ -42,7 +42,7 @@ class ThesissController < ApplicationController
 			params.require(:thesis).permit(:subject,:topic,:duration,:publisher,:description,:reasearchers,thesisimages_attributes:[:id,:paper,:_destroy])
 		end
 
-		def get_thesisi
+		def get_thesis
 			@thesis= Thesis.find(params[:id])
 		end
 end

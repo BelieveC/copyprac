@@ -1,0 +1,65 @@
+
+<div class="flipbook-viewport">
+	<div class="container">
+	<div class="flipbook" id="gallery">
+	<% @thesis.thesisimages.each do |thesisimage| %>
+			<div style="background-image:url(<%=thesisimage.paper.url%>)"></div>
+	<% end%>
+	</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+
+function loadApp() {
+
+	// Create the flipbook
+
+	$('.flipbook').turn({
+			// Width
+
+			width:922,
+
+			// Height
+
+			height:600,
+
+			// Elevation
+
+			elevation: 50,
+			
+			// Enable gradients
+
+			gradients: true,
+			
+			// Auto center this flipbook
+
+			autoCenter: true
+
+	});
+}
+
+// Load the HTML4 version if there's not CSS transform
+
+yepnope({
+	test : Modernizr.csstransforms,
+	yep: ['turn.js'],
+	nope: ['turn.html4.min.js'],
+	both: ['basic.css'],
+	complete: loadApp
+});
+
+</script>
+
+<h1><%= @thesis.topic %></h1>
+<h2><%= @thesis.subject %></h2>
+<h3><%=@thesis.publisher %></h3>
+<h4><%=@thesis.duration %></h4>
+<h5><%=@thesis.reasearchers %></h5>
+<p><%=@thesis.description %></p>
+
+
+<%= link_to "Edit",edit_thesiss_path(@thesis),class:"btn btn-primary"%>
+<%= link_to "Delete",@thesiss,method: :delete,data:{confirm:"Are you sure?"},class:"btn btn-danger"%>
+<%= link_to "Back",:back,class:"btn btn-info"%>
