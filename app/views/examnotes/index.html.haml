@@ -1,0 +1,9 @@
+-if current_user
+	%h1= current_user.name
+
+- @examnotes.each do |examnote|
+	%h1=link_to examnote.topic,examnote
+	%h3=examnote.subject
+	%p=examnote.tips
+	%br/
+	%br/

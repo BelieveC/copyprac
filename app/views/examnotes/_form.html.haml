@@ -1,0 +1,5 @@
+=simple_form_for(@examnote,html:{multipart: true}) do |f|
+	=f.input :aim, label: "Aim", class: "form-control",placeholder:"Aim is first Impression"
+	=f.input :subject, label: "Subject", class: "form-control",placeholder: "What is this article about?"
+	=f.input :description, label:"Description", class:"form-control",placeholder:"Describe Your Practical"
+	%br/
