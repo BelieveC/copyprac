@@ -6,4 +6,11 @@
 	=f.input :reasearchers,label:"Researchers",class:"form-control"
 	=f.input :description, label:"Description",class:"Form-control"
 	%br/
+	%h2 Images
+	#tasks
+	=f.simple_fields_for :thesisimages do |thesisimage|
+		=render 'thesisimage_fields', f: thesisimage
+	.links
+		=link_to_add_association 'Add Images', f, :thesisimages,class:"btn btn-default add-button"
+	%br/
 	=f.submit class:"btn btn-primary"

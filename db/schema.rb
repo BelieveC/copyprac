@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402111850) do
+ActiveRecord::Schema.define(version: 20160402112254) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "practical_id"
@@ -62,8 +62,12 @@ ActiveRecord::Schema.define(version: 20160402111850) do
   end
 
   create_table "thesisimages", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "paper_file_name"
+    t.string   "paper_content_type"
+    t.integer  "paper_file_size"
+    t.datetime "paper_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
