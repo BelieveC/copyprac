@@ -44,7 +44,7 @@ class ExamnotesController < ApplicationController
 			params.require(:examnote).permit(:subject,:topic,:tips)
 		end
 
-		def get_pratical
+		def get_examnote
 			@examnote = Examnote.find(params[:id])
 		end
 end
