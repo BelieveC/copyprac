@@ -543,16 +543,13 @@ footer p {
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">BitNotes</a>
+                <a class="navbar-brand" href="#">BitNotes</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="#">About</a>
+                        <%= link_to "Home",root_path%>
                     </li>
                     <li id= "searchbox">
                     <form class="navbar-form navbar-left" role="search">
@@ -563,10 +560,7 @@ footer p {
                     </form>
                     </li>
                     <li>
-                    <a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
-                    </li>
-                    <li>
-                    <a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                    <span class="glyphicon glyphicon-user"></span><%= "Sign Up","auth/facebook"%>
                     </li>
                 </ul>
             </div>
