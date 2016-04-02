@@ -59,3 +59,12 @@ yepnope({
 <%= link_to "Edit",edit_practical_path(@practical),class:"btn btn-primary"%>
 <%= link_to "Delete",@practical,method: :delete,data:{confirm:"Are you sure?"},class:"btn btn-danger"%>
 <%= link_to "Back",:back,class:"btn btn-info"%>
+<br>
+<%=@practical.comments.count%>
+Comments
+<%=render :partial => @practical.comments%>
+<%=simple_form_for([@practical,Comment.new]) do |f|%>
+	<%=f.input :body%>
+	<br>
+	<%=f.submit%>
+<% end%>
