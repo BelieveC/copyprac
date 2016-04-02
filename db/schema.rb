@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402175159) do
+ActiveRecord::Schema.define(version: 20160402175726) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "practical_id"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20160402175159) do
     t.string   "page_content_type"
     t.integer  "page_file_size"
     t.datetime "page_updated_at"
+    t.integer  "examnote_id"
   end
 
   create_table "practicals", force: :cascade do |t|
