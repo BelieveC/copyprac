@@ -3,4 +3,11 @@
 	=f.input :subject,label:"Subject",class:"form-control",placeholder:"Which subject this note concerned with"
 	=f.input :tips, label:"Tips", class:"form-control",placeholder:"Give me Some Tips"
 	%br/
-	=f.submit class:"btn btn-primary"
+	%h2 Images
+	#tasks
+	=f.simple_fields_for :notes do |note|
+		=render 'note_fields', f: note
+	.links
+		=link_to_add_association 'Add Images', f, :notes,class:"btn btn-default add-button"
+	%br/
+	=f.submit class: "btn btn-primary"

@@ -39,7 +39,7 @@ class ExamnotesController < ApplicationController
 
 	private
 		def examnote_params
-			params.require(:examnote).permit(:subject,:topic,:tips)
+			params.require(:examnote).permit(:subject,:topic,:tips,notes_attributes:[:id,:page,:_destroy])
 		end
 
 		def get_examnote
