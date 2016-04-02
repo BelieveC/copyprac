@@ -1,0 +1,9 @@
+-if current_user
+	%h1= current_user.name
+
+- @thesiss.each do |thesis|
+	%h1=link_to thesis.topic,thesis
+	%h3=thesis.subject
+	%p=thesis.tips
+	%br/
+	%br/
