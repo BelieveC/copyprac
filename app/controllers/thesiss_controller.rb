@@ -2,7 +2,7 @@ class ThesissController < ApplicationController
 	before_action :get_thesis, only:[:show,:edit,:update,:destroy]
 
 	def index
-		@thesis = Thesis.all.order("created_at DESC")
+		@thesiss = Thesis.all.order("created_at DESC")
 	end
 
 	def show
