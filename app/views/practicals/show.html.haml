@@ -1,5 +1,6 @@
--@practical.images.all.each do |image|
-	=image_tag image.url(:medium)
+-@practical.images.each do |image|
+	=image_tag image.url
+	%br/
 
 %h1=@practical.aim
 %h2=@practical.subject

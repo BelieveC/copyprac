@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 	def create
 	    user = User.from_omniauth(env["omniauth.auth"])
 	    session[:user_id] = user.id
-	    redirect_to new_practical_path,notice:"Successfully Signed In"
+	    redirect_to practicals_path,notice:"Successfully Signed In"
 	end
 
 	def destroy
