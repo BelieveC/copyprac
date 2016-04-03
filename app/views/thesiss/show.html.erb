@@ -3,7 +3,7 @@
 	<div class="container">
 	<div class="flipbook" id="gallery">
 	<% @thesis.thesisimages.each do |thesisimage| %>
-			<div style="background-image:url(<%=thesisimage.paper.url%>)"></div>
+			<%= image_tag(thesisimage.paper.url(:medium))%>
 	<% end%>
 	</div>
 	</div>
@@ -57,7 +57,7 @@ yepnope({
 <h3><%=@thesis.publisher %></h3>
 <h4><%=@thesis.duration %></h4>
 <h5><%=@thesis.reasearchers %></h5>
-<p><%=@thesis.description %></p>
+<p><%=simple_format(@thesis.description) %></p>
 
 
 <%= link_to "Edit",edit_thesiss_path(@thesis),class:"btn btn-primary"%>

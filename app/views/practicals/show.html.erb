@@ -1,7 +1,61 @@
-<div id="bottom">
+<div class="container">
+		<h1 class="align-center">bitNotes</h1>
+		<div class="gallery">
+			<% @practical.images.each do |image| %>
+				<%= image_tag(image.sheet.url(:medium))%>
+			<% end%>
+		</div>
+</div>
+<script>
+	$(function(){
+		var $gallery = $('.gallery a').simpleLightbox();
+		
+		$gallery.on('show.simplelightbox', function(){
+			console.log('Requested for showing');
+		})
+		.on('shown.simplelightbox', function(){
+			console.log('Shown');
+		})
+		.on('close.simplelightbox', function(){
+			console.log('Requested for closing');
+		})
+		.on('closed.simplelightbox', function(){
+			console.log('Closed');
+		})
+		.on('change.simplelightbox', function(){
+			console.log('Requested for change');
+		})
+		.on('next.simplelightbox', function(){
+			console.log('Requested for next');
+		})
+		.on('prev.simplelightbox', function(){
+			console.log('Requested for prev');
+		})
+		.on('nextImageLoaded.simplelightbox', function(){
+			console.log('Next image loaded');
+		})
+		.on('prevImageLoaded.simplelightbox', function(){
+			console.log('Prev image loaded');
+		})
+		.on('changed.simplelightbox', function(){
+			console.log('Image changed');
+		})
+		.on('nextDone.simplelightbox', function(){
+			console.log('Image changed to next');
+		})
+		.on('prevDone.simplelightbox', function(){
+			console.log('Image changed to prev');
+		})
+		.on('error.simplelightbox', function(e){
+			console.log('No image found, go to the next/prev');
+			console.log(e);
+		});
+	});
+</script>
+
 	<h1><%= @practical.aim %></h1>
 	<h2><%= @practical.subject %></h2>
-	<p><%=@practical.description %></p>
+	<p><%=simple_format(@practical.description) %></p>
 
 	<%= link_to "Edit",edit_practical_path(@practical),class:"btn btn-primary"%>
 	<%= link_to "Delete",@practical,method: :delete,data:{confirm:"Are you sure?"},class:"btn btn-danger"%>
@@ -17,56 +71,3 @@
 		<%=f.submit%>
 	<% end%>
 </div>
-<div class="flipbook-viewport" id="gallery">
-	<div class="container">
-	<div class="flipbook">
-	<% @practical.images.each do |image| %>
-			<div style="background-image:url(<%=image.sheet.url%>)"></div>
-	<% end%>
-	</div>
-	</div>
-</div>
-
-
-<script type="text/javascript">
-
-function loadApp() {
-
-	// Create the flipbook
-
-	$('.flipbook').turn({
-			// Width
-
-			width:922,
-
-			// Height
-
-			height:600,
-
-			// Elevation
-
-			elevation: 50,
-			
-			// Enable gradients
-
-			gradients: true,
-			
-			// Auto center this flipbook
-
-			autoCenter: true
-
-	});
-}
-
-// Load the HTML4 version if there's not CSS transform
-
-yepnope({
-	test : Modernizr.csstransforms,
-	yep: ['turn.js'],
-	nope: ['turn.html4.min.js'],
-	both: ['basic.css'],
-	complete: loadApp
-});
-
-</script>
-

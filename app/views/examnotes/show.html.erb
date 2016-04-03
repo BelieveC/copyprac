@@ -2,7 +2,7 @@
 	<div class="container">
 	<div class="flipbook" id="gallery">
 	<% @examnote.notes.each do |note| %>
-			<div style="background-image:url(<%=note.page.url%>)"></div>
+			<%= image_tag(note.page.url(:medium))%>
 	<% end%>
 	</div>
 	</div>

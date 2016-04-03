@@ -4,5 +4,8 @@
 - @thesiss.each do |thesis|
 	%h1=link_to thesis.topic,thesiss_path(thesis)
 	%h3=thesis.subject
+	%pSubmitted
+	%strong=time_ago_in_words(thesis.created_at)
+	ago
 	%br/
 	%br/
