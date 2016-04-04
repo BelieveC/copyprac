@@ -6,6 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'favicon'%>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body>
 	<%= render('fb')%>
@@ -19,8 +20,8 @@
 							<li><%= link_to 'ExamNotes', examnotes_path %></li>
 							<li><%= link_to 'Thesis', thesiss_index_path %></li>
         				</ul>
-        				<%if user_signed_in? %>
 						<ul class="nav navbar-nav navbar-right">
+						<%if user_signed_in? %>
 							<li><%= link_to 'New Practical', new_practical_path %></li>
 							<li><%= link_to 'New ExamNote', new_examnote_path %></li>
 							<li><%= link_to 'New Thesis', new_thesiss_path %></li>
@@ -32,6 +33,7 @@
         </nav>
       </div>
     </div>
+   
   </header>
 
 	<div id="main_content" class="container">

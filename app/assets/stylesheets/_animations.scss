@@ -1,0 +1,130 @@
+﻿$icon-popup-speed: 150ms;
+$animation-speed: 150ms;
+
+@keyframes popUp{
+    from{
+       transform: translateY(-50%) scale(1);
+    }
+    to{
+        transform:translateY(-50%) scale(1.5);
+    }
+}
+
+@keyframes fadeOutLeft{
+    from{
+        left:50%;
+        opacity:1;
+    }
+
+    to{
+        left:40%;
+        opacity:0;
+    }
+}
+
+@keyframes fadeOutRight{
+    from{
+        left:50%;
+        opacity:1;
+    }
+    to{
+        left:60%;
+        opacity:0;
+    }
+}
+
+@keyframes fadeInLeft{
+    from{
+        left:40%;
+        opacity:0
+    }
+    to{
+        left:50%;
+        opacity:1;
+    }
+}
+
+@keyframes fadeInRight{
+    from{
+        left:60%;
+        opacity:0;
+    }
+    to{
+        left:50%;
+        opacity:1;
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+.jbox-container{
+    .pop-up {
+        -moz-animation-name: popUp;
+        -o-animation-name: popUp;
+        -webkit-animation-name: popUp;
+        animation-name: popUp;
+        -moz-animation-duration: $icon-popup-speed;
+        -o-animation-duration: $icon-popup-speed;
+        -webkit-animation-duration: $icon-popup-speed;
+        animation-duration: $icon-popup-speed;
+        -moz-animation-timing-function: ease-in-out;
+        -o-animation-timing-function: ease-in-out;
+        -webkit-animation-timing-function: ease-in-out;
+        animation-timing-function: ease-in-out;
+        -moz-animation-iteration-count: 2;
+        -o-animation-iteration-count: 2;
+        -webkit-animation-iteration-count: 2;
+        animation-iteration-count: 2;
+        -moz-animation-direction: alternate;
+        -o-animation-direction: alternate;
+        -webkit-animation-direction: alternate;
+        animation-direction: alternate;
+    }
+
+    .fade-out-left{
+        animation-name:fadeOutLeft;
+        animation-duration: $animation-speed;
+        animation-iteration-count:1;
+        animation-timing-function:ease-in-out;
+        animation-fill-mode:forwards;
+    }
+
+    .fade-out-right{
+        animation-name:fadeOutRight;
+        animation-duration: $animation-speed;
+        animation-iteration-count:1;
+        animation-timing-function:ease-in-out;
+        animation-fill-mode:forwards;
+    }
+
+    .fade-in-right{
+        animation-name: fadeInRight;
+        animation-duration: $animation-speed;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode:forwards;
+    }
+
+    .fade-in-left{
+        animation-name: fadeInLeft;
+        animation-duration: $animation-speed;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode:forwards;
+    }
+
+    .fade-in{
+        animation-name: fadeIn;
+        animation-duration: 0ms;
+        animation-timing-function:ease-in-out;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+    }
+}
