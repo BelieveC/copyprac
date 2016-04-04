@@ -26,7 +26,7 @@ class ThesissController < ApplicationController
 
 	def update
 		if @thesis.update(thesisparams)
-			redirect_to thesiss_index_path
+			redirect_to thesiss_path(@thesis)
 		else
 			render('edit')
 		end
@@ -34,7 +34,7 @@ class ThesissController < ApplicationController
 
 	def destroy
 		@thesis.destroy
-		redirect_to thesiss
+		redirect_to thesiss_index_path
 	end
 
 	private

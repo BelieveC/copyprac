@@ -8,8 +8,10 @@ Rails.application.routes.draw do
 
   resources :thesiss
 
+  resources :abouts
+
   resources :sessions, only: [:create, :destroy]
-  root 'abouts#index'
+  root 'practicals#index'
 
   resources :practicals do
     resources :comments
