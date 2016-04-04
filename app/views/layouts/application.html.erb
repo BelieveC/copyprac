@@ -19,11 +19,16 @@
 							<li><%= link_to 'ExamNotes', examnotes_path %></li>
 							<li><%= link_to 'Thesis', thesiss_index_path %></li>
         				</ul>
+        				<%if user_signed_in? %>
 						<ul class="nav navbar-nav navbar-right">
 							<li><%= link_to 'New Practical', new_practical_path %></li>
 							<li><%= link_to 'New ExamNote', new_examnote_path %></li>
 							<li><%= link_to 'New Thesis', new_thesiss_path %></li>
+						<% else %>
+							<li><%= link_to "Sign Up","auth/facebook"%></li>
 						</ul>
+						<% end%>
+
         </nav>
       </div>
     </div>
