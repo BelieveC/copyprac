@@ -4,9 +4,13 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
-  resources :examnotes
+  resources :examnotes do
+    resources :ecomments
+  end
 
-  resources :thesiss
+  resources :thesiss do
+     resources :tcomments
+   end
 
   resources :abouts
 
