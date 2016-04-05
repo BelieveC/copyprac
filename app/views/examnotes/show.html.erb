@@ -41,9 +41,10 @@
 <%= link_to "Edit",edit_examnote_path(@examnote),class:"btn btn-primary"%>
 <%= link_to "Delete",@examnote,method: :delete,data:{confirm:"Are you sure?"},class:"btn btn-danger"%>
 <%= link_to "Back",:back,class:"btn btn-info"%>
-
-<%=@examnote.ecomments .count%>
-    Comments
+<br>
+<br>
+<strong><%=@examnote.ecomments .count%> Comments</strong>
+<br><br>
     <%=render :partial => @examnote.ecomments %>
     <%=simple_form_for([@examnote,Ecomment.new]) do |f|%>
         <%=f.input :body%>
