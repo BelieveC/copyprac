@@ -1,6 +1,8 @@
 =simple_form_for(@thesis,url:{action: "create",controller:"thesiss"},html:{multipart: true}) do |f|
 	=f.input :topic, label:"Topic", class: "form-control",placeholder: "What is this Thesis about?"
-	=f.input :subject,label:"Subject",class:"form-control",placeholder:"Which subject this thesis is concerned with"
+	%br/
+	=f.collection_select :subject_id, Subject.all,:id,:name, {promt: "Choose a Subject or Add Subject"},class:"form-control"
+	%br/
 	=f.input :publisher, label:"Publisher", class:"form-control"
 	=f.input :duration,label:"Duration",class:"form-control"
 	=f.input :reasearchers,label:"Researchers",class:"form-control"
