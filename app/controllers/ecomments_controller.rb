@@ -1,0 +1,2 @@
+class EcommentsController < ApplicationController
+end
