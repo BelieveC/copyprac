@@ -1,0 +1,2 @@
+class TcommentsController < ApplicationController
+end
