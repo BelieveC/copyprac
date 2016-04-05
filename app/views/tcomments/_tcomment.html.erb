@@ -1,0 +1,8 @@
+<%= div_for(tcomment) do %>
+		<div class="comments_wrapper clearfix">
+		<div class="pull-left">
+			<p class="lead"><%= tcomment.body %></p>
+			<p>Submitted <strong><%= time_ago_in_words(tcomment.created_at) %> ago</strong></p>
+		</div>
+		</div>
+<%end%>

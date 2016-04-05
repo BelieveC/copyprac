@@ -1,0 +1,24 @@
+<%= form_for(@ecomment) do |f| %>
+  <% if @ecomment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ecomment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @ecomment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </div>
+  <div class="field">
+    <%= f.label :examnote_id %><br>
+    <%= f.text_field :examnote_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

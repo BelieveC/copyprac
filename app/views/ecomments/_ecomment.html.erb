@@ -1,0 +1,8 @@
+<%= div_for(ecomment) do %>
+		<div class="comments_wrapper clearfix">
+		<div class="pull-left">
+			<p class="lead"><%= ecomment.body %></p>
+			<p>Submitted <strong><%= time_ago_in_words(ecomment.created_at) %> ago</strong></p>
+		</div>
+		</div>
+<%end%>
