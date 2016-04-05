@@ -1,6 +1,7 @@
 =simple_form_for(@examnote,html:{multipart: true}) do |f|
 	=f.input :topic, label:"Topic", class: "form-control",placeholder: "What is this Examnote about?"
-	=f.input :subject,label:"Subject",class:"form-control",placeholder:"Which subject this note concerned with"
+	=f.collection_select :subject_id, Subject.all,:id,:name, {promt: "Choose a Subject or Add Subject"},class:"form-control",label:"Subject"
+	=f.collection_select :college_id, College.all,:id,:name, {promt: "Choose a College or Add College"},class:"form-control",class:"College"
 	=f.input :tips, label:"Tips", class:"form-control",placeholder:"Give me Some Tips"
 	%br/
 	%h2 Images
