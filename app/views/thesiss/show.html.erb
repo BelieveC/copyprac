@@ -44,14 +44,3 @@
 <%= link_to "Edit",edit_thesiss_path(@thesis),class:"btn btn-primary"%>
 <%= link_to "Delete",@thesiss,method: :delete,data:{confirm:"Are you sure?"},class:"btn btn-danger"%>
 <%= link_to "Back",:back,class:"btn btn-info"%>
-
-<br>
-<br>
-<strong><%=@thesis.tcomments.count%> Comments</strong>
-<br><br>
-    <%=render :partial => @thesis.tcomments%>
-    <%=form_for([@thesis,@thesis.tcomments.build]) do |f|%>
-        <%=f.text_field :body%>
-        <br>
-        <%=f.submit%>
-    <% end%>

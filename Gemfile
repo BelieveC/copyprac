@@ -40,6 +40,8 @@ gem 'paperclip'
 
 gem 'omniauth-facebook'
 
+gem 'acts_as_votable'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
