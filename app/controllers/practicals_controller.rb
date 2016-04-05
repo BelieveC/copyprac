@@ -4,7 +4,11 @@ class PracticalsController < ApplicationController
 	end
 
 	def index
-		@practicals = Practical.all.order("created_at DESC")
+		if params[:college].blank?
+			@practicals = Practical.all.order("created_at DESC")
+		else
+			@practicals = Practical.where(college_id: params[:college]).order("name ASC")
+		end
 	end
 
 	def show
@@ -38,7 +42,6 @@ class PracticalsController < ApplicationController
 		@practical.destroy
 		redirect_to practicals_path
 	end
-
 	private
 		def pratical_params
 			params.require(:practical).permit(:aim,:description,:subject,images_attributes:[:id,:sheet,:_destroy])
