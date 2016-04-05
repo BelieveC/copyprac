@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-
+resources :subjects
+resources :colleges
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')

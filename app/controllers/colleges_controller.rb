@@ -1,5 +1,5 @@
 class CollegesController < ApplicationController
-
+	before_action :get_college, only:[:edit,:update,:destroy,:show]
 	def new
 		@college = College.new
 	end
@@ -43,6 +43,6 @@ class CollegesController < ApplicationController
 		end
 
 		def get_college
-			@college = College.find[params[:id]]
+			@college = College.find(params[:id])
 		end
 end

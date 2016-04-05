@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body>
-	<%= render('fb')%>
 	<header class="navbar navbar-default" role="navigation">
     <div class="navbar-inner">
       <div class="container">
@@ -21,13 +20,23 @@
 							<li><%= link_to 'Thesis', thesiss_index_path %></li>
         				</ul>
 						<ul class="nav navbar-nav navbar-right">
-						<%if user_signed_in? %>
-							<li><%= link_to 'New Practical', new_practical_path %></li>
-							<li><%= link_to 'New ExamNote', new_examnote_path %></li>
-							<li><%= link_to 'New Thesis', new_thesiss_path %></li>
-						<% else %>
+							<li><%= link_to(new_practical_path) do %>
+									<span class="glyphicon glyphicon-plus">Practical</span>
+								<% end %>	
+							</li>
+							<li><%= link_to(new_examnote_path) do %>
+									<span class="glyphicon glyphicon-plus">Examnote</span>
+								<% end %>	
+							</li>
+							<li><%= link_to(new_thesiss_path) do %>
+									<span class="glyphicon glyphicon-plus">Thesis</span>
+								<% end %>	
+							</li>
+							<li><%= link_to(new_college_path) do %>
+									<span class="glyphicon glyphicon-plus">College</span>
+								<% end %>	
+							</li>
 							<li><%= link_to "Sign Up","auth/facebook"%></li>
-						<% end%>
 							<li><%= link_to "About",abouts_path%>
 						</ul>
 

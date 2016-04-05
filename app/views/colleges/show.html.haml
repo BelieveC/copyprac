@@ -1,0 +1,6 @@
+%h1 @college.name
+%br/
+%p @college.address
+
+=link_to "Edit",edit_college_path(@college),class:"btn btn-info"
+=link_to "Delete",@college,method: :delete,data:{confirm:"Are you sure?"},class:"btn btn-danger"
