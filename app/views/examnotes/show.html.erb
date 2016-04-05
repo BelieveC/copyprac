@@ -1,6 +1,6 @@
 <div class="container">
         <% @examnote.notes.each do |note| %>
-				<%= image_tag(note.page.url,class:"jbox-img",alt:"Image 1")%>
+				<%= image_tag(note.page.url,class:"jbox-img",alt:"Image")%>
 		<%end%>
     </div>
 
@@ -35,7 +35,6 @@
     </script>
 
 <h1><%= @examnote.topic %></h1>
-<h2><%= @examnote.subject %></h2>
 <p><%=@examnote.tips %></p>
 
 <%= link_to "Edit",edit_examnote_path(@examnote),class:"btn btn-primary"%>
