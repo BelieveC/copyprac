@@ -1,5 +1,5 @@
 class TcommentsController < ApplicationController
-	before__action :get_thesis
+	before_action :get_thesis
 	def create
 		@thesis.tcomments.create(tcomment_params)
 		redirect_to thesiss_path(@thesis)

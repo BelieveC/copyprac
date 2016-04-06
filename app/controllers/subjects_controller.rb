@@ -1,11 +1,17 @@
 class SubjectsController < ApplicationController
 	before_action :get_subject, only:[:show,:edit,:update,:destroy]
 	def new
+
 		@subject = Subject.new
 	end
 
 	def index
-		@subjects = Subject.all.order("name ASC")
+		if params[:search].blank?
+			@subjects = Subject.all.order("name ASC")
+		else
+			@query = params[:search]
+			@subjects = Subject.search(params[:search])
+		end
 	end
 
 	def show

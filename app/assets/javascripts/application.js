@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require materialize-sprockets
 //=require cocoon
 //= require jquery_ujs
 //= require turbolinks

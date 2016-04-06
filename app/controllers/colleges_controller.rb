@@ -5,7 +5,12 @@ class CollegesController < ApplicationController
 	end
 
 	def index
-		@colleges = College.all.order("name ASC")
+		if params[:search].blank?
+			@colleges = College.all.order("name ASC")
+		else
+			@query = params[:search]
+			@colleges = College.search(params[:search])
+		end
 	end
 
 	def show

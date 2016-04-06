@@ -1,4 +1,5 @@
 class Practical < ActiveRecord::Base
+	searchkick
 	has_many :images
 	has_many :comments
 

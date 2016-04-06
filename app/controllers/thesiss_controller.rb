@@ -2,10 +2,13 @@ class ThesissController < ApplicationController
 	before_action :get_thesis, only:[:show,:edit,:update,:destroy]
 
 	def index
-		if params[:subject].blank?
+		if params[:subject].blank? && params[:search].blank?
 			@thesiss = Thesis.all.order("created_at DESC")
-		else
+		elsif params[:subject].present?
 			@thesiss = Thesis.where(subject_id: params[:subject]).order("created_at ASC")
+		else
+			@query = params[:search]
+			@thesiss = Thesis.search(params[:search])
 		end
 	end
 

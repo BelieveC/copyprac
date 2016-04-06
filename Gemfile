@@ -10,7 +10,7 @@ end
 group :production do
 	gem 'pg'
 end
-
+gem 'searchkick'
 gem 'cocoon'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -33,6 +33,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 
 gem 'haml'
+
+gem 'materialise-sass'
 
 gem 'simple_form'
 

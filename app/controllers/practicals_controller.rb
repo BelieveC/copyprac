@@ -4,12 +4,15 @@ class PracticalsController < ApplicationController
 	end
 
 	def index
-		if params[:college].blank? && params[:subject].blank?
+		if params[:college].blank? && params[:subject].blank? && params[:search].blank?
 			@practicals = Practical.all.order("created_at DESC")
 		elsif !params[:college].blank?
 			@practicals = Practical.where(college_id: params[:college]).order("created_at DESC")
-		else
+		elsif params[:subject].present?
 			@practicals = Practical.where(subject_id: params[:subject]).order("created_at DESC")
+		else
+			@query = params[:search]
+			@practicals = Practical.search(params[:search])
 		end
 	end
 
