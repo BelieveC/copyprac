@@ -34,7 +34,7 @@ gem 'bootstrap-sass'
 
 gem 'haml'
 
-gem 'materialise-sass'
+gem 'materialize-sass', '~> 0.97.5'
 
 gem 'simple_form'
 
