@@ -7,7 +7,7 @@ class ExamnotesController < ApplicationController
 		elsif !params[:college].blank?
 			@examnotes = Examnote.where(college_id: params[:college]).order("created_at DESC")
 		else
-			
+			@examnotes = Examnote.where(subject_id: params[:subject]).order("created_at DESC")
 		end
 	end
 

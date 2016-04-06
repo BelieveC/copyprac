@@ -4,10 +4,12 @@ class PracticalsController < ApplicationController
 	end
 
 	def index
-		if params[:college].blank?
+		if params[:college].blank? && params[:subject].blank?
 			@practicals = Practical.all.order("created_at DESC")
-		else
+		elsif !params[:college].blank?
 			@practicals = Practical.where(college_id: params[:college]).order("created_at DESC")
+		else
+			@practicals = Practical.where(subject_id: params[:subject]).order("created_at DESC")
 		end
 	end
 
@@ -44,7 +46,7 @@ class PracticalsController < ApplicationController
 	end
 	private
 		def pratical_params
-			params.require(:practical).permit(:aim,:description,:subject_id,:college_id,:images_attributes:[:id,:sheet,:_destroy])
+			params.require(:practical).permit(:aim,:description,:subject_id,:college_id,images_attributes: [:id,:sheet,:_destroy])
 		end
 
 		def get_pratical

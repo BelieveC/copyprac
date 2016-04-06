@@ -1,5 +1,8 @@
 -@subjects.each do |subject|
 	%h1= subject.name
+	=link_to "Practical", practicals_path(:subject=>subject.id),class:"btn btn-success"
+	=link_to "Examnote", examnotes_path(:subject=>subject.id),class:"btn btn-default"
+	=link_to "Thesis", thesiss_index_path(:subject=>subject.id),class:"btn btn-primary"
 	=link_to "Edit",edit_subject_path(subject),class:"btn btn-info"
 	=link_to "Delete", subject,method: :delete,data:{confirm:"Are you sure?"},class:"btn btn-danger"
 	%hr/
