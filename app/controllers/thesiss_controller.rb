@@ -2,7 +2,11 @@ class ThesissController < ApplicationController
 	before_action :get_thesis, only:[:show,:edit,:update,:destroy]
 
 	def index
-		@thesiss = Thesis.all.order("created_at DESC")
+		if params[:subject].blank?
+			@thesiss = Thesis.all.order("created_at DESC")
+		else
+			@thesiss = Thesis.where(subject_id: params[:subject]).order("created_at ASC")
+		end
 	end
 
 	def show

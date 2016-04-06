@@ -2,10 +2,12 @@ class ExamnotesController < ApplicationController
 	before_action :get_examnote, only:[:show,:edit,:update,:destroy]
 
 	def index
-		if params[:college].blank?
+		if params[:college].blank? && params[:subject].blank?
 			@examnotes = Examnote.all.order("created_at DESC")
-		else
+		elsif !params[:college].blank?
 			@examnotes = Examnote.where(college_id: params[:college]).order("created_at DESC")
+		else
+			
 		end
 	end
 
