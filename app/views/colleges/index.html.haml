@@ -2,6 +2,7 @@
 	%h1= college.name
 	%p=college.address
 	=link_to "Practicals",practicals_path(:college=>college.id),class:"btn btn-primary"
+	=link_to "Examnote",examnotes_path(:college=>college.id),class:"btn btn-success"
 	=link_to "Edit",edit_college_path(college),class:"btn btn-info"
 	=link_to "Delete", college,method: :delete,data:{confirm:"Are you sure?"},class:"btn btn-danger"
 	%hr/

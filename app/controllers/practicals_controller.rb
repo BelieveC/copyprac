@@ -7,7 +7,7 @@ class PracticalsController < ApplicationController
 		if params[:college].blank?
 			@practicals = Practical.all.order("created_at DESC")
 		else
-			@practicals = Practical.where(college_id: params[:college]).order("name ASC")
+			@practicals = Practical.where(college_id: params[:college]).order("created_at DESC")
 		end
 	end
 
@@ -44,7 +44,7 @@ class PracticalsController < ApplicationController
 	end
 	private
 		def pratical_params
-			params.require(:practical).permit(:aim,:description,:subject,images_attributes:[:id,:sheet,:_destroy])
+			params.require(:practical).permit(:aim,:description,:subject_id,:college_id,:images_attributes:[:id,:sheet,:_destroy])
 		end
 
 		def get_pratical

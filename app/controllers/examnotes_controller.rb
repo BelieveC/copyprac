@@ -2,7 +2,11 @@ class ExamnotesController < ApplicationController
 	before_action :get_examnote, only:[:show,:edit,:update,:destroy]
 
 	def index
-		@examnotes = Examnote.all.order("created_at DESC")
+		if params[:college].blank?
+			@examnotes = Examnote.all.order("created_at DESC")
+		else
+			@examnotes = Examnote.where(college_id: params[:college]).order("created_at DESC")
+		end
 	end
 
 	def show
@@ -39,7 +43,7 @@ class ExamnotesController < ApplicationController
 
 	private
 		def examnote_params
-			params.require(:examnote).permit(:subject,:topic,:tips,notes_attributes:[:id,:page,:_destroy])
+			params.require(:examnote).permit(:subject_id,:college_id,:topic,:tips,notes_attributes:[:id,:page,:_destroy])
 		end
 
 		def get_examnote
