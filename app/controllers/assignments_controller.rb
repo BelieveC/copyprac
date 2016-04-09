@@ -14,7 +14,7 @@ class AssignmentsController < ApplicationController
 		if @assignment.update(assignment_params)
 			redirect_to @assignment
 		else
-			render('edit')]
+			render('edit')
 		end
 	end
 

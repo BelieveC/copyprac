@@ -1,0 +1,9 @@
+=simple_form_for @assignment do |f|
+	=f.input :topic,label:"Topic",class:"form-control"
+	=f.collection_select :subject_id, Subject.all,:id,:name, {promt: "Choose a Subject or Add Subject"},class:"form-control",label:"Subject"
+	%br/
+	=f.collection_select :college_id, College.all,:id,:name, {promt: "Choose a College or Add College"},class:"form-control",label:"College"
+	%br/
+	=f.input :teacher, label:"Professor", class:"form-control"
+	=f.input :description,label:"Description",class:"form-control"
+	=f.submit class:"btn btn-primary"
