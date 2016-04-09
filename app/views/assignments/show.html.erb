@@ -1,6 +1,7 @@
 <h1><%= @assignment.topic %></h1>
 <h2><%=@assignment.teacher %></h2>
 <p><%= @assignment.description %></p>
+<p><%= @assignment.college_id%></p>
 
 <%= link_to "Edit",edit_assignment_path(@assignment),class:"btn btn-primary"%>
 <%= link_to "Delete",@assignment,method: :delete,data:{confirm:"Are you sure?"},class:"btn btn-danger"%>

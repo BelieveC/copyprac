@@ -1,7 +1,11 @@
 class AssignmentsController < ApplicationController
 	before_action :get_assignment,only: [:show,:edit,:update,:destroy]
 	def index
-		@assignments = Assignment.all.order("created_at ASC")
+		if params[:college].blank?
+			@assignments = Assignment.all.order("created_at ASC")
+		else
+			@assignments = Assignment.where(college_id: params[:college]).order("created_at ASC")
+		end
 	end
 
 	def show
