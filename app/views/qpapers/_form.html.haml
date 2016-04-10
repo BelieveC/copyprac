@@ -9,4 +9,12 @@
 	%br/
 	=f.input :teacher,class:"form-control"
 	%br/
+	%h2 Images
+	#tasks
+	=f.simple_fields_for :qimages do |qimage|
+		=render 'qimage_fields', f: qimage
+	.links
+		=link_to_add_association 'Add Images', f, :qimages,class:"btn btn-default add-button"
+	%br/
 	=f.submit class: "button"
+
