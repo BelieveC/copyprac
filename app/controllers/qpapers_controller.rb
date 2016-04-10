@@ -36,6 +36,6 @@ class QpapersController < ApplicationController
 		end
 
 		def qpaper_params
-			params.require(:qpaper).permit(:subject,:teacher,:date,:examname,:subject_id,:college_id)
+			params.require(:qpaper).permit(:subject,:teacher,:date,:examname,:subject_id,:college_id,qimages_attributes: [:id,:image,:_destroy])
 		end
 end
