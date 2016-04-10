@@ -1,0 +1,26 @@
+<div class="post_wrapper">
+	<%=form_tag(thesiss_index_path,method: :get) do%>
+		<%=text_field_tag :search,params[:search],class:"form-control",placeholder:"Search Thesis"%>
+		<br>
+		<%=submit_tag("Search",class:"button")%>
+		<br>
+		<br>
+	<% end%>
+	<%if @query.present?%>
+		<p><strong><%=@thesiss.count%></strong> results found for <strong><%=@query %></strong></p>
+		<br>
+		<br>
+	<%end %>
+	<% @thesiss.each do |thesis|%>
+		<div id="feed">
+			<h4 id="head"><%=link_to thesis.topic,thesiss_path(thesis)%></h4>
+			 <ul class="collapsible popout" data-collapsible="accordion">
+			    <li>
+			      <div class="collapsible-header"><i class="material-icons">whatshot</i>Description</div>
+			      <div class="collapsible-body"><p><%=thesis.description%></p></div>
+			    </li>
+			 </ul>
+			 <p id="time">Submitted <strong><%=time_ago_in_words(thesis.created_at)%></strong> ago</p>
+		</div>
+	<%end%>
+</div>

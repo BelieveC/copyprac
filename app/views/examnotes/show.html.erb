@@ -1,52 +1,34 @@
-<div class="container">
-        <% @examnote.notes.each do |note| %>
-				<%= image_tag(note.page.url,class:"jbox-img",alt:"Image")%>
-		<%end%>
-    </div>
-
-    <div class="jbox-container">
-        <div class="img-alt-text"></div>
-        <img src="" />
-        <svg version="1.1" class="jbox-prev" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        viewBox="0 0 306 306" xml:space="preserve">
-            <g>
-                <g id="chevron-right">
-                    <polygon points="211.7,306 247.4,270.3 130.1,153 247.4,35.7 211.7,0 58.7,153" />
-                </g>
-            </g>
-        </svg>
-        <svg version="1.1" class="jbox-next" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        viewBox="0 0 306 306" xml:space="preserve">
-            <g>
-                <g id="chevron-right">
-                    <polygon points="94.35,0 58.65,35.7 175.95,153 58.65,270.3 94.35,306 247.35,153" />
-                </g>
-            </g>
-        </svg>
-        <svg version="1.1" class="jbox-close" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-       viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-            <path d="M512,51.75L460.25,0L256,204.25L51.75,0L0,51.75L204.25,256L0,460.25L51.75,512L256,307.75L460.25,512L512,460.25
-	L307.75,256L512,51.75z" />
-        </svg>
-
-    </div>
-    <script>
-        var gallery = new jBox();
-    </script>
-
-<h1><%= @examnote.topic %></h1>
-<p><%=@examnote.tips %></p>
-
-<%= link_to "Edit",edit_examnote_path(@examnote),class:"btn btn-primary"%>
-<%= link_to "Delete",@examnote,method: :delete,data:{confirm:"Are you sure?"},class:"btn btn-danger"%>
-<%= link_to "Back",:back,class:"btn btn-info"%>
+<div id="post-content">
+    <div id="feed">
+        <h2 id="head"><%= @examnote.topic %></h2>
+        <div class="row">
+            <% @examnote.notes.each do |note| %>
+              <div class="col-xs-6 col-md-3">
+                <%= image_tag(note.page.url,class:"materialboxed thumbnail",width:"250")%>
+              </div>
+            <%end%>
+        </div>
+    <ul class="collapsible popout" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">whatshot</i>Tips</div>
+          <div class="collapsible-body"><p><%=simple_format(@examnote.tips)%></p></div>
+        </li>
+     </ul>
+    <%= link_to "Edit",edit_examnote_path(@examnote),class:"btn btn-primary"%>
+    <%= link_to "Delete",@examnote,method: :delete,data:{confirm:"Are you sure?"},class:"btn btn-danger"%>
+    <%= link_to "Back",:back,class:"btn btn-info"%>
+    <br>
+</div>
 <br>
-<br>
-<strong><%=@examnote.ecomments .count%> Comments</strong>
-<br><br>
-    <%=render :partial => @examnote.ecomments %>
-    <%=simple_form_for([@examnote,Ecomment.new]) do |f|%>
-        <%=f.input :body%>
-        <br>
-        <%=f.submit%>
-    <% end%>
+<div id="feed">
+    <div id="comments">
+        <h4 id="head"><%= pluralize @examnote.ecomments.count,"Comment" %></h4>
+        <%=render :partial => @examnote.ecomments%>
+        <h3>Add Comment</h3>
+        <%=simple_form_for([@examnote,Ecomment.new]) do |f|%>
+            <%=f.input :body%>
+            <br>
+            <%=f.submit "Comment"%>
+        <% end%>
+    </div>
+</div>

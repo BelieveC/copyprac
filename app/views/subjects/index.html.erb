@@ -1,0 +1,27 @@
+<div class="post_wrapper">
+	<%=form_tag(subjects_path,method: :get) do%>
+		<%=text_field_tag :search,params[:search],class:"form-control",placeholder:"Search Subjects"%>
+		<br>
+		<%=submit_tag("Search",class:"button")%>
+		<br>
+		<br>
+	<% end%>
+	<%if @query.present?%>
+		<p><strong><%=@subjects.count%></strong> results found for <strong><%=@query %></strong></p>
+		<br>
+		<br>
+	<%end %>
+	<% @subjects.each do |subject|%>
+		<div id="feed">
+			<h4 id="head"><%=link_to subject.name,subject%></h4>
+			 <%=link_to "Practical", practicals_path(:subject=>subject.id),class:"button" %>
+			 <%=link_to "Examnote", examnotes_path(:subject=>subject.id),class:"button" %>
+			 <%=link_to "Thesis", thesiss_index_path(:subject=>subject.id),class:"button"%>
+			 <%=link_to "Edit",edit_subject_path(subject),class:"button" %>
+			 <%=link_to "Delete", subject,method: :delete,data:{confirm:"Are you sure?"},class:"button" %>
+			 <br>
+			 <br>
+			 <p id="time">Added <strong><%=time_ago_in_words(subject.created_at)%></strong> ago</p>
+		</div>
+	<%end%>
+</div>

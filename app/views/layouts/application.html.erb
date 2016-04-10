@@ -6,68 +6,69 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'favicon'%>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
 </head>
 <body>
-	<header class="navbar navbar-default" role="navigation">
-    <div class="navbar-inner">
-      <div class="container">
-        <div id="logo" class="navbar-brand"><%= link_to "bitNotes",root_path %></div>
-        <nav class="collapse navbar-collapse navbar-ex1-collapse">
-        				<ul class="nav navbar-nav navbar-left">
-        					<li><%= link_to "About",abouts_path%>
-					            <li><%= link_to 'Practicals', practicals_path %></li>
-								<li><%= link_to 'ExamNotes', examnotes_path %></li>
-								<li><%= link_to 'Thesis', thesiss_index_path %></li>
-					      
-					            <li><%= link_to 'Colleges', colleges_path %></li>
-								<li><%= link_to 'Subjects', subjects_path %></li>
-					      
-					    </ul>
-						<ul class="nav navbar-nav navbar-right">
-							<li><%= link_to(new_practical_path) do %>
-									<span class="glyphicon glyphicon-plus">Practical</span>
-								<% end %>	
-							</li>
-							<li><%= link_to(new_examnote_path) do %>
-									<span class="glyphicon glyphicon-plus">Examnote</span>
-								<% end %>	
-							</li>
-							<li><%= link_to(new_thesiss_path) do %>
-									<span class="glyphicon glyphicon-plus">Thesis</span>
-								<% end %>	
-							</li>
-							<li><%= link_to(new_college_path) do %>
-									<span class="glyphicon glyphicon-plus">College</span>
-								<% end %>	
-							</li>
-							<li><%= link_to(new_subject_path) do %>
-									<span class="glyphicon glyphicon-plus">Subject</span>
-								<% end %>	
-							</li>
-							<li><%= link_to("/auth/facebook") do %>
-									<span class="glyphicon glyphicon-log-in"></span>
-								<% end %>	
-							</li>
-							
-						</ul>
+	<div id="sidebar">
+	  <div id="logo">
+	    <%= link_to root_path do %>
+	      <%= image_tag "logo.jpg", id: "logo_image" %>
 
-        </nav>
-      </div>
-    </div>
-   
-  </header>
-
-	<div id="main_content" class="container">
-		<% flash.each do |name, msg| %>
-			<%= content_tag(:div, msg, class: "alert alert-info") %>
-		<% end %>
-
-			<div id="content" class="col-md-9 center-block">
-				
-				<%= yield %>
-			</div>
-		</div>
+	    <% end %>
+	  </div>
+	  <br>
+	  <ul>
+	    <li class="category">Add New</li>
+	    <li><%= link_to(new_practical_path) do %>
+	        <span class="glyphicon glyphicon-plus">Practical</span>
+	      <% end %> 
+	    </li>
+	    <li><%= link_to(new_examnote_path) do %>
+	        <span class="glyphicon glyphicon-plus">Examnote</span>
+	      <% end %> 
+	    </li>
+	    <li><%= link_to(new_assignment_path) do %>
+	        <span class="glyphicon glyphicon-plus">Assignment</span>
+	      <% end %> 
+	    </li>
+	    <li><%= link_to(new_thesiss_path) do %>
+	        <span class="glyphicon glyphicon-plus">Thesis</span>
+	      <% end %> 
+	    </li>
+	    <li><%= link_to(new_college_path) do %>
+	        <span class="glyphicon glyphicon-plus">College</span>
+	      <% end %> 
+	    </li>
+	    <li><%= link_to(new_subject_path) do %>
+	        <span class="glyphicon glyphicon-plus">Subject</span>
+	      <% end %> 
+	    </li>
+	  </ul>
+	  <ul>
+	     <li class="category">My Uploads</li>
+	     <li><%= link_to "Practicals", "#" %></li>
+	     <li><%= link_to "Examnotes", "#"%></li>
+	     <li><%= link_to "Assignments", "#"%></li>
+	     <li><%= link_to "Thesis", "#"%></li>
+	  </ul>
+	</div>
+	<div id="main_content">
+	  <div id="header">
+	      <div class="buttons">
+	     	<button class="button"><%= link_to 'Practicals',practicals_path %></button>
+	     	<button class="button"><%= link_to 'ExamNotes',examnotes_path %></button>
+	     	<button class="button"><%= link_to 'Assignments',assignments_path %></button>
+	     	<button class="button"><%= link_to 'Thesis',thesiss_index_path %></button>
+	     	<button class="button"><%= link_to 'Colleges', colleges_path %></button>
+	     	<button class="button"><%= link_to 'Subjects', subjects_path %></button>
+	        <button class="button"><%= link_to "Logout","#"%></button>
+	      </div>
+	  </div>
+	  <% flash.each do |name, msg| %>
+	    <%= content_tag(:div,msg,class: "alert")%>
+	  <%end%>
+	  <%= yield %>
 	</div>
 </body>
 </html>

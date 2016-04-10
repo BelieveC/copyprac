@@ -1,0 +1,31 @@
+<div class="post_wrapper">
+	<%=form_tag(assignments_path,method: :get) do%>
+		<%=text_field_tag :search,params[:search],class:"form-control",placeholder:"Search Assignment"%>
+		<br>
+		<%=submit_tag("Search",class:"button")%>
+		<br>
+		<br>
+	<% end%>
+	<%if @query.present?%>
+		<p><strong><%=@assignment.count%></strong> results found for <strong><%=@query %></strong></p>
+		<br>
+		<br>
+	<%end %>
+	<% @assignments.each do |assignment|%>
+		<div id="feed">
+			<h4 id="head"><%=link_to assignment.topic,assignment%></h4>
+			 <ul class="collapsible popout" data-collapsible="accordion">
+			    <li>
+			      <div class="collapsible-header"><i class="material-icons">whatshot</i>Faculty</div>
+			      <div class="collapsible-body"><p><%=assignment.teacher%></p></div>
+			    </li>
+			    <li>
+			      <div class="collapsible-header"><i class="material-icons">whatshot</i>Description</div>
+			      <div class="collapsible-body"><p><%=assignment.description%></p></div>
+			    </li>
+			 </ul>
+			 <p id="time">Submitted <strong><%=time_ago_in_words(assignment.created_at)%></strong> ago</p>
+
+		</div>
+	<%end%>
+</div>

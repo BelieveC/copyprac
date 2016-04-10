@@ -1,0 +1,17 @@
+<div id="page_wrapper">
+
+	<% if @thesis.errors.any?%>
+		<div id="errors">
+			<h2><%= pluralize(@thesis.errors.count, "Error")%> prevented this thesis from saving</h2>
+			<ul>
+				<% @thesis.errors.full_messages.each do |msg| %>
+					<li><%= msg%></li>
+				<% end%>
+			</ul>
+		</div>
+	<% end %>
+	<h4 id="head"> Edit Thesis</h4>
+	<%=render('form')%>
+	<br>
+	<%=link_to "Back",:back,class:"button"%>
+</div>

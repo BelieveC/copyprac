@@ -1,0 +1,27 @@
+<div class="post_wrapper">
+	<%=form_tag(colleges_path,method: :get) do%>
+		<%=text_field_tag :search,params[:search],class:"form-control",placeholder:"Search colleges"%>
+		<br>
+		<%=submit_tag("Search",class:"button")%>
+		<br>
+		<br>
+	<% end%>
+	<%if @query.present?%>
+		<p><strong><%=@colleges.count%></strong> results found for <strong><%=@query %></strong></p>
+		<br>
+		<br>
+	<%end %>
+	<% @colleges.each do |college|%>
+		<div id="feed">
+			<h4 id="head"><%=link_to college.name,college%></h4>
+			 <%=link_to "Practical", practicals_path(:college=>college.id),class:"button" %>
+			 <%=link_to "Examnote", examnotes_path(:college=>college.id),class:"button" %>
+			 <%=link_to "Thesis", thesiss_index_path(:college=>college.id),class:"button"%>
+			 <%=link_to "Edit",edit_college_path(college),class:"button" %>
+			 <%=link_to "Delete", college,method: :delete,data:{confirm:"Are you sure?"},class:"button" %>
+			 <br>
+			 <br>
+			 <p id="time">Added <strong><%=time_ago_in_words(college.created_at)%></strong> ago</p>
+		</div>
+	<%end%>
+</div>

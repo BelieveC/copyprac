@@ -1,0 +1,35 @@
+<div class="post_wrapper">
+	<%=form_tag(examnotes_path,method: :get) do%>
+		<%=text_field_tag :search,params[:search],class:"form-control",placeholder:"Search Examnotes"%>
+		<br>
+		<%=submit_tag("Search",class:"button")%>
+		<br>
+		<br>
+	<% end%>
+	<%if @query.present?%>
+		<p><strong><%=@examnotes.count%></strong> results found for <strong><%=@query %></strong></p>
+		<br>
+		<br>
+	<%end %>
+	<% @examnotes.each do |examnote|%>
+		<div id="feed">
+			<h4 id="head"><%=link_to examnote.topic,examnote%></h4>
+			<div class="slider">
+                <ul class="slides">
+                 <% examnote.notes.each do |note| %>
+                  <li>
+                    <%= image_tag(note.page.url)%> <!-- random image -->
+                  </li>
+                <%end%>
+                </ul>
+            </div>
+			 <ul class="collapsible popout" data-collapsible="accordion">
+			    <li>
+			      <div class="collapsible-header"><i class="material-icons">whatshot</i>Tips</div>
+			      <div class="collapsible-body"><p><%=examnote.tips%></p></div>
+			    </li>
+			 </ul>
+			 <p id="time">Submitted <strong><%=time_ago_in_words(examnote.created_at)%></strong> ago</p>
+		</div>
+	<%end%>
+</div>
