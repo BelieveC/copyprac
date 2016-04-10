@@ -14,6 +14,15 @@
 	<% @assignments.each do |assignment|%>
 		<div id="feed">
 			<h4 id="head"><%=link_to assignment.topic,assignment%></h4>
+			<div class="slider">
+                <ul class="slides">
+                 <% assignment.aimages.each do |aimage| %>
+                  <li>
+                    <%= image_tag(aimage.image.url)%> <!-- random image -->
+                  </li>
+                <%end%>
+                </ul>
+            </div>
 			 <ul class="collapsible popout" data-collapsible="accordion">
 			    <li>
 			      <div class="collapsible-header"><i class="material-icons">whatshot</i>Faculty</div>

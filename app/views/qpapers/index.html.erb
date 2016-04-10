@@ -1,0 +1,40 @@
+<div class="post_wrapper">
+	<%=form_tag(qpapers_path,method: :get) do%>
+		<%=text_field_tag :search,params[:search],class:"form-control",placeholder:"Search Qpaper"%>
+		<br>
+		<%=submit_tag("Search",class:"button")%>
+		<br>
+		<br>
+	<% end%>
+	<%if @query.present?%>
+		<p><strong><%=@qpaper.count%></strong> results found for <strong><%=@query %></strong></p>
+		<br>
+		<br>
+	<%end %>
+	<% @qpapers.each do |qpaper|%>
+		<div id="feed">
+			<h4 id="head"><%=link_to qpaper.examname,qpaper%></h4>
+			<div class="slider">
+                <ul class="slides">
+                 <% qpaper.qimages.each do |qimage| %>
+                  <li>
+                    <%= image_tag(qimage.image.url)%> <!-- random image -->
+                  </li>
+                <%end%>
+                </ul>
+            </div>
+			 <ul class="collapsible popout" data-collapsible="accordion">
+			     <li>
+			      <div class="collapsible-header"><i class="material-icons">whatshot</i>Date Of Exam</div>
+			      <div class="collapsible-body"><p><%=qpaper.date%></p></div>
+			    </li>
+			    <li>
+			      <div class="collapsible-header"><i class="material-icons">whatshot</i>Faculty</div>
+			      <div class="collapsible-body"><p><%=simple_format(qpaper.teacher)%></p></div>
+			    </li>
+			 </ul>
+			 <p id="time">Submitted <strong><%=time_ago_in_words(qpaper.created_at)%></strong> ago</p>
+
+		</div>
+	<%end%>
+</div>
