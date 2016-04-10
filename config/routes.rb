@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :subjects
   resources :colleges
-
+  resources :qpapers
   resources :assignments
 
   get 'auth/:provider/callback', to: 'sessions#create'
