@@ -1,8 +1,26 @@
-<h1><%= @assignment.topic %></h1>
-<h2><%=@assignment.teacher %></h2>
-<p><%= @assignment.description %></p>
-<p><%= @assignment.college_id%></p>
+<div id="post-content">
+	<div id="feed">
+		<h2 id="head"><%= @assignment.topic %></h2>
+	    <div class="row">
+		    <% @assignment.aimages.each do |aimage| %>
+			  <div class="col-xs-6 col-md-3">
+			    <%= image_tag(aimage.image.url,class:"materialboxed thumbnail",width:"250")%>
+			  </div>
+			<%end%>
+		</div>
+	<ul class="collapsible popout" data-collapsible="accordion">
+	    <li>
+	      <div class="collapsible-header"><i class="material-icons">whatshot</i>Teacher</div>
+	      <div class="collapsible-body"><p><%=simple_format(@assignment.teacher)%></p></div>
+	    </li>
+	    <li>
+	      <div class="collapsible-header"><i class="material-icons">whatshot</i>Description</div>
+	      <div class="collapsible-body"><p><%=simple_format(@assignment.description)%></p></div>
+	    </li>
 
-<%= link_to "Edit",edit_assignment_path(@assignment),class:"btn btn-primary"%>
-<%= link_to "Delete",@assignment,method: :delete,data:{confirm:"Are you sure?"},class:"btn btn-danger"%>
-<%= link_to "Back",:back,class:"btn btn-info"%>
+	 </ul>
+	<%= link_to "Edit",edit_assignment_path(@assignment),class:"btn btn-primary"%>
+	<%= link_to "Delete",@assignment,method: :delete,data:{confirm:"Are you sure?"},class:"btn btn-danger"%>
+	<%= link_to "Back",:back,class:"btn btn-info"%>
+	<br>
+</div>
