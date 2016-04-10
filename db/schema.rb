@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160410083830) do
+ActiveRecord::Schema.define(version: 20160410085118) do
 
   create_table "aimages", force: :cascade do |t|
     t.integer  "assignment_id"
@@ -103,6 +103,14 @@ ActiveRecord::Schema.define(version: 20160410083830) do
     t.integer  "college_id"
     t.integer  "subject_id"
   end
+
+  create_table "qimages", force: :cascade do |t|
+    t.integer  "qpaper_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "qimages", ["qpaper_id"], name: "index_qimages_on_qpaper_id"
 
   create_table "qpapers", force: :cascade do |t|
     t.datetime "created_at", null: false
