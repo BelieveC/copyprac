@@ -1,0 +1,2 @@
+class QpapersController < ApplicationController
+end

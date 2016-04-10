@@ -1,0 +1,2 @@
+module QpapersHelper
+end
