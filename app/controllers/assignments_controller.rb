@@ -45,7 +45,7 @@ class AssignmentsController < ApplicationController
 
 	private
 		def assignment_params
-			params.require(:assignment).permit(:topic,:subject_id,:college_id,:description,:teacher)
+			params.require(:assignment).permit(:topic,:subject_id,:college_id,:description,:teacher,aimages_attributes: [:id,:image,:_destroy])
 		end
 
 		def get_assignment
