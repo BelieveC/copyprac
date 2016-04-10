@@ -1,7 +1,12 @@
 class QpapersController < ApplicationController
 	before_action :get_qpaper,only: [:show,:edit,:update,:destroy]
 	def index
-		@qpapers = Qpaper.all.order("created_at DESC")
+		if params[:search].blank?
+			@qpapers = Qpaper.all.order("created_at DESC"
+		else
+			@query = params[:search]
+			@qpapers = Qpaper.search(params[:search])
+		end
 	end
 	def show
 	end
