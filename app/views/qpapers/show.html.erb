@@ -1,3 +1,27 @@
-<p><%= @qpaper.examname%>
-<p><%=@qpaper.teacher%>
-<p><%=@qpaper.date%>
+<div id="post-content">
+	<div id="feed">
+		<h2 id="head"><%= @qpaper.examname %></h2>
+	    <div class="row">
+		    <% @qpaper.qimages.each do |qimage| %>
+			  <div class="col-xs-6 col-md-3">
+			    <%= image_tag(qimage.image.url,class:"materialboxed thumbnail",width:"250")%>
+			  </div>
+			<%end%>
+		</div>
+	<ul class="collapsible popout" data-collapsible="accordion">
+	    <li>
+	      <div class="collapsible-header"><i class="material-icons">whatshot</i>Date Of Exam</div>
+	      <div class="collapsible-body"><p><%=simple_format(@qpaper.date)%></p></div>
+	    </li>
+	    <li>
+	      <div class="collapsible-header"><i class="material-icons">whatshot</i>Faculty</div>
+	      <div class="collapsible-body"><p><%=simple_format(@qpaper.teacher)%></p></div>
+	    </li>
+
+	 </ul>
+	<%= link_to "Edit",edit_qpaper_path(@qpaper),class:"btn btn-primary"%>
+	<%= link_to "Delete",@qpaper,method: :delete,data:{confirm:"Are you sure?"},class:"btn btn-danger"%>
+	<%= link_to "Back",:back,class:"btn btn-info"%>
+	<br>
+</div>
+
