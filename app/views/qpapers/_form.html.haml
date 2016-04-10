@@ -1,0 +1,10 @@
+=simple_form_for(@qpaper,html:{multipart: true}) do |f|
+	=f.input :examname, label: "Examname", class: "form-control",placeholder:"Aim is first Impression"
+	%br/
+	=f.collection_select :subject_id, Subject.all,:id,:name, {promt: "Choose a Subject or Add Subject"},class:"form-control"
+	%br/
+	=f.collection_select :college_id, College.all,:id,:name, {promt: "Choose a Subject or Add Subject"},class:"form-control"
+	%br/
+	=f.input :description, label:"Description", class:"form-control",placeholder:"Describe Your "
+	%br/
+	=f.submit class: "button"

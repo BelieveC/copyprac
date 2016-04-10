@@ -1,0 +1,17 @@
+<div id="page_wrapper">
+
+	<% if @qpaper.errors.any?%>
+		<div id="errors">
+			<h2><%= pluralize(@qpaper.errors.count, "Error")%> prevented this Question Paper from saving</h2>
+			<ul>
+				<% @qpaper.errors.full_messages.each do |msg| %>
+					<li><%= msg%></li>
+				<% end%>
+			</ul>
+		</div>
+	<% end %>
+	<h4 id="head"> New Question Paper</h4>
+	<%=render('form')%>
+	<br>
+	<%=link_to "Back",:back,class:"button"%>
+</div>
