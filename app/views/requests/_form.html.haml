@@ -1,0 +1,6 @@
+=simple_form_for(@request) do |f|
+	=f.input :name,label:"Topic",class:"form-control"
+	%br/
+	=f.collection_select :subject_id, Subject.all,:id,:name, {promt: "Choose a Subject or Add Subject"},class:"form-control",label:"Subject"
+	%br/
+	=f.submit class:"button"

@@ -1,0 +1,17 @@
+<div id="page_wrapper">
+
+	<% if @request.errors.any?%>
+		<div id="errors">
+			<h2><%= pluralize(@request.errors.count, "Error")%> prevented this request from saving</h2>
+			<ul>
+				<% @request.errors.full_messages.each do |msg| %>
+					<li><%= msg%></li>
+				<% end%>	
+			</ul>
+		</div>
+	<% end %>
+	<h4 id="head"> Edit Request</h4>
+	<%=render('form')%>
+	<br>
+	<%=link_to "Back",:back,class:"button"%>
+</div>
