@@ -1,0 +1,14 @@
+<div id="post-content">
+	<div id="feed">
+		<h2 id="head"><%= @college.name %></h2>
+	<ul class="collapsible popout" data-collapsible="accordion">
+	    <li>
+	      <div class="collapsible-header"><i class="material-icons">whatshot</i>Address</div>
+	      <div class="collapsible-body"><p><%=simple_format(@college.address)%></p></div>
+	    </li>
+	 </ul>
+	<%= link_to "Edit",edit_college_path(@college),class:"btn btn-primary"%>
+	<%= link_to "Delete",@college,method: :delete,data:{confirm:"Are you sure?"},class:"btn btn-danger"%>
+	<%= link_to "Back",:back,class:"btn btn-info"%>
+	<br>
+</div>
