@@ -2,6 +2,15 @@
 	<% @requests.each do |request|%>
 	<div id="feed">
 			<h4 id="head"><%=request.name %></h4>
+			<% if type_id==1%>
+				<%= link_to "Respond",new_practical_path,class:"btn" %>
+			<% elsif type_id==2%>
+				<%= link_to "Respond",new_examnote_path,class:"btn" %>
+			<% elsif type_id==3 %>
+				<%= link_to "Respond",new_assignment_path,class:"btn" %>
+			<% else%>
+				<%= link_to "Respond",paper_path,class:"btn" %>
+			<% end%>
 			<%= link_to "Edit",edit_request_path(request),class:"btn btn-primary"%>
 			<%= link_to "Delete",request,method: :delete,data:{confirm:"Are you sure?"},class:"btn btn-danger"%>
 	</div>
