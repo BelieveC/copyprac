@@ -2,6 +2,8 @@
 	<% @requests.each do |request|%>
 	<div id="feed">
 			<h4 id="head"><%=request.name %></h4>
+			<%= link_to "Edit",edit_request_path(request),class:"btn btn-primary"%>
+			<%= link_to "Delete",request,method: :delete,data:{confirm:"Are you sure?"},class:"btn btn-danger"%>
 	</div>
 	<% end %>
 </div>

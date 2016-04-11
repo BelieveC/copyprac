@@ -3,4 +3,6 @@
 	%br/
 	=f.collection_select :subject_id, Subject.all,:id,:name, {promt: "Choose a Subject or Add Subject"},class:"form-control",label:"Subject"
 	%br/
+	=f.input :type_id,collection:[['Practical',1],['Examnote','2'],['Assignment','3'],['Paper',4]],selected: 'Practical'
+	%br/
 	=f.submit class:"button"
