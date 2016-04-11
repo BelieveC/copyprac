@@ -1,13 +1,15 @@
 class AssignmentsController < ApplicationController
 	before_action :get_assignment,only: [:show,:edit,:update,:destroy]
 	def index
-		if params[:college].blank? && params[:search].blank?
+		if params[:college].blank? && params[:search].blank? && params[:subject].blank?
 			@assignments = Assignment.all.order("created_at ASC")
 		elsif params[:college].present?
 			@assignments = Assignment.where(college_id: params[:college]).order("created_at ASC")
-		else
+		elsif params[:search].present?
 			@query = params[:search]
 			@assignments = Assignment.search(params[:search])
+		else
+			@assignments = Assignment.where(subject_id: params[:subject])
 		end
 	end
 

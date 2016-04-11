@@ -5,9 +5,11 @@ class QpapersController < ApplicationController
 			@qpapers = Qpaper.all.order("created_at ASC")
 		elsif params[:college].present?
 			@qpapers = Qpaper.where(college_id: params[:college]).order("created_at ASC")
-		else
+		elsif params[:search].present?
 			@query = params[:search]
 			@qpapers = Qpaper.search(params[:search])
+		else
+			@qpapers = Qpaper.where(subject_id: params[:subject])
 		end
 	end
 	def show
