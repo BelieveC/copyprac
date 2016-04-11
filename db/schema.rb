@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160411064947) do
+ActiveRecord::Schema.define(version: 20160411073756) do
 
   create_table "aimages", force: :cascade do |t|
     t.integer  "assignment_id"
@@ -133,6 +133,7 @@ ActiveRecord::Schema.define(version: 20160411064947) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "subject_id"
+    t.integer  "type_id"
   end
 
   create_table "subjects", force: :cascade do |t|
