@@ -32,6 +32,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bootstrap-sass'
 
+gem 'tinymce-rails', '~> 4.3', '>= 4.3.8'
+
 gem 'haml'
 
 gem 'materialize-sass', '~> 0.97.5'
