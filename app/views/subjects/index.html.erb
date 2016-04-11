@@ -13,7 +13,7 @@
 	<%end %>
 	<% @subjects.each do |subject|%>
 		<div id="feed">
-			<h4 id="head"><%=link_to subject.name,subject%></h4>
+			<h4 id="head"><%=subject.name%></h4>
 			 <%=link_to "Practical", practicals_path(:subject=>subject.id),class:"button" %>
 			 <%=link_to "Examnote", examnotes_path(:subject=>subject.id),class:"button" %>
 			 <%=link_to "Assignment", assignments_path(:subject=>subject.id),class:"button" %>
