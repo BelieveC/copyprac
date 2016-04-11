@@ -5,6 +5,7 @@
 	%br/
 	=f.input :type_id,collection:[['Practical',1],['Examnote','2'],['Assignment','3'],['Paper',4]],selected: 'Practical'
 	%br/
-	=f.input :description,class:"form-contol"
+	=f.input :description,input_html:{class:'tinymce'},class:"form-contol"
 	%br/
 	=f.submit class:"button"
+=tinymce
