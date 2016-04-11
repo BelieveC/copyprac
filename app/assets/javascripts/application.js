@@ -18,10 +18,10 @@
 //= require turbolinks
 //= require_tree .
 
- $(document).ready(function(){
+ $(document).on('page:change',function(){
       $('.slider').slider({full_width: true});
     });
-  $(document).ready(function(){
+  $(document).on('page:change',function(){
     $('.materialboxed').materialbox();
   });
      
