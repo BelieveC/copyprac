@@ -14,7 +14,7 @@ class RequestsController < ApplicationController
 	end
 	def update
 		if @request.update(request_params)
-			redirect_to @request
+			redirect_to requests_path
 		else
 			render('edit')
 		end
@@ -40,6 +40,6 @@ class RequestsController < ApplicationController
 		end
 
 		def request_params
-			params.require(:request).permit(:name,:type,:subject_id)
+			params.require(:request).permit(:name,:type_id,:subject_id,:description)
 		end
 end
