@@ -19,6 +19,7 @@
 			 <%=link_to "Assignment", assignments_path(:subject=>subject.id),class:"button" %>
 			 <%=link_to "Paper", qpapers_path(:subject=>subject.id),class:"button" %>
 			 <%=link_to "Thesis", thesiss_index_path(:subject=>subject.id),class:"button"%>
+			 <%=link_to "Answer Request", requests_path(:subject=>subject.id),class:"button" %>
 			 <%=link_to "Edit",edit_subject_path(subject),class:"button" %>
 			 <%=link_to "Delete", subject,method: :delete,data:{confirm:"Are you sure?"},class:"button" %>
 			 <br>

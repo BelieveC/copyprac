@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-	before :get_request, only:[:show,:edit,:update,:destroy]
+	before_action :get_request, only:[:show,:edit,:update,:destroy]
 	def index
 		if params[:subject].blank?
 			@requests = Request.all.order("created_at DESC")
@@ -24,7 +24,7 @@ class RequestsController < ApplicationController
 	def create
 		@request = Request.new(request_params)
 		if @request.save
-			redirect_to @request
+			redirect_to requests_path
 		else
 			render 'new'
 		end
