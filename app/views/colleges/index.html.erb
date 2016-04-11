@@ -16,6 +16,8 @@
 			<h4 id="head"><%=link_to college.name,college%></h4>
 			 <%=link_to "Practical", practicals_path(:college=>college.id),class:"button" %>
 			 <%=link_to "Examnote", examnotes_path(:college=>college.id),class:"button" %>
+			 <%=link_to "Assignment", assignments_path(:college=>college.id),class:"button" %>
+			 <%=link_to "Paper", qpapers_path(:college=>college.id),class:"button" %>
 			 <%=link_to "Thesis", thesiss_index_path(:college=>college.id),class:"button"%>
 			 <%=link_to "Edit",edit_college_path(college),class:"button" %>
 			 <%=link_to "Delete", college,method: :delete,data:{confirm:"Are you sure?"},class:"button" %>

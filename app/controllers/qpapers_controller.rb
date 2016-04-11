@@ -1,8 +1,10 @@
 class QpapersController < ApplicationController
 	before_action :get_qpaper,only: [:show,:edit,:update,:destroy]
 	def index
-		if params[:search].blank?
-			@qpapers = Qpaper.all.order("created_at DESC"
+		if params[:college].blank? && params[:search].blank?
+			@qpapers = Qpaper.all.order("created_at ASC")
+		elsif params[:college].present?
+			@qpapers = Qpaper.where(college_id: params[:college]).order("created_at ASC")
 		else
 			@query = params[:search]
 			@qpapers = Qpaper.search(params[:search])
