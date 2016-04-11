@@ -5,7 +5,7 @@
 	%br/
 	=f.collection_select :college_id, College.all,:id,:name, {promt: "Choose a Subject or Add Subject"},class:"form-control"
 	%br/
-	=f.input :description, label:"Description", class:"form-control tinymce",placeholder:"Describe Your Practical"
+	=f.input :description, label:"Description", input_html:{class:"tinymce"},placeholder:"Describe Your Practical"
 	%br/
 	%h2 Images
 	#tasks

@@ -4,7 +4,7 @@
 	%br/
 	=f.collection_select :college_id, College.all,:id,:name, {promt: "Choose a College or Add College"},class:"form-control",label:"College"
 	%br/
-	=f.input :tips, label:"Tips", class:"form-control",placeholder:"Give me Some Tips"
+	=f.input :tips, label:"Tips", input_html:{class:'tinymce'},placeholder:"Give me Some Tips"
 	%br/
 	%h2 Images
 	#tasks
