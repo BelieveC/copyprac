@@ -5,7 +5,7 @@
 	=f.collection_select :college_id, College.all,:id,:name, {promt: "Choose a College or Add College"},class:"form-control",label:"College"
 	%br/
 	=f.input :teacher, label:"Professor", class:"form-control"
-	=f.input :description,input_html:{class:'tinymce'}label:"Description",class:"form-control"
+	=f.input :description,input_html:{class:'tinymce'},label:"Description",class:"form-control"
 
 	%br/
 	%h2 Images
@@ -16,3 +16,4 @@
 		=link_to_add_association 'Add images', f, :aimages,class:"btn btn-default add-button"
 	%br/
 	=f.submit class: "button"
+=tinymce
